@@ -9,6 +9,16 @@ IP sockets (especially TCP/IP sockets) are a mechanism allowing communication be
 UNIX domain sockets know that they’re executing on the same system, so they can avoid some checks and operations (like routing); which makes them faster and lighter than IP sockets. So if you plan to communicate with processes on the same host, this is a better option than IP sockets.
 
 
+## Docs
+
+- [actix_web](https://actix.rs/)
+- [actix_web / rust docs](https://docs.rs/actix-web/latest/actix_web/index.html)
+- [App](https://docs.rs/actix-web/4.11.0/actix_web/struct.App.html)
+- [Testing Org](https://doc.rust-lang.org/book/ch11-03-test-organization.html)
+- [Actix web test](https://actix.rs/docs/testing/)
+- [Menifast target specification](https://doc.rust-lang.org/cargo/reference/cargo-targets.html#cargo-targets)
+
+
 
 ## References
 
