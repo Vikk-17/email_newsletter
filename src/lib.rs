@@ -1,6 +1,5 @@
-use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
-use actix_web::dev::Server; 
-
+use actix_web::dev::Server;
+use actix_web::{App, HttpResponse, HttpServer, Responder, get, post, web};
 
 #[get("/")]
 async fn hello() -> impl Responder {
@@ -33,4 +32,3 @@ pub fn run() -> Result<Server, std::io::Error> {
 
     Ok(server)
 }
-

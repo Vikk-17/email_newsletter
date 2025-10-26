@@ -5,7 +5,7 @@ async fn health_check_works() {
 
     // Bring the reqwest client
     let client = reqwest::Client::new();
-    
+
     // send the get request
     let response = client
         .get("http://127.0.0.1:8080/health_check")
