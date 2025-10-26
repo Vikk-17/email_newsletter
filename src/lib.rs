@@ -1,4 +1,6 @@
-use actix_web::{App, HttpResponse, HttpServer, Responder, get, post, web};
+use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
+use actix_web::dev::Server; 
+
 
 #[get("/")]
 async fn hello() -> impl Responder {
@@ -15,11 +17,11 @@ async fn manual_hello() -> impl Responder {
 }
 
 async fn health_check() -> impl Responder {
-    HttpResponse::Ok()
+    HttpResponse::Ok().finish()
 }
 
-pub async fn run() -> Result<(), std::io::Error> {
-    HttpServer::new(|| {
+pub fn run() -> Result<Server, std::io::Error> {
+    let server = HttpServer::new(|| {
         App::new()
             .service(hello)
             .service(echo)
@@ -27,7 +29,8 @@ pub async fn run() -> Result<(), std::io::Error> {
             .route("/health_check", web::get().to(health_check))
     })
     .bind(("127.0.0.1", 8080))?
-    .run()
-    .await
+    .run();
+
+    Ok(server)
 }
 
